@@ -14,7 +14,7 @@ RUN \
 
 RUN \
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
-  sed -i 's/"robbyrussell"/"dieter"/g' .zshrc
+  sed -i 's/"robbyrussell"/"dieter"/g' ~/.zshrc
 
 # Default Shell
 SHELL ["/bin/zsh","-c"]
