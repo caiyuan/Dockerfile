@@ -15,16 +15,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 RUN \
-  ln -s /bin/busybox /bin/top && \
-  ln -s /bin/busybox /bin/ps && \
-  ln -s /bin/busybox /bin/sysctl && \
-  ln -s /bin/busybox /bin/ifconfig && \
-  ln -s /bin/busybox /bin/route && \
-  ln -s /bin/busybox /bin/brctl && \
-  ln -s /bin/busybox /bin/arp && \
-  ln -s /bin/busybox /bin/netstat && \
-  ln -s /bin/busybox /bin/wget && \
-  ln -s /bin/busybox /bin/vi
+  busybox --install
 
 # Set environment variables.
 ENV HOME /root
