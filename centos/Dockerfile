@@ -8,17 +8,14 @@ FROM centos:8.2.2004
 # Install.
 RUN \
   yum -y upgrade && \
-  yum install -y iproute vim && \
+  yum install -y busybox zsh && \
   yum clean all
 
-# Add files.
+RUN \
+  /bin/busybox --install
 
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
+# Default Shell
+SHELL ["/bin/zsh","-c"]
 
 # Define default command.
-CMD ["bash"]
-
+CMD ["zsh"]
