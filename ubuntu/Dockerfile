@@ -9,17 +9,14 @@ FROM ubuntu:18.04
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y iproute2 vim && \
+  apt-get install -y busybox zsh && \
   rm -rf /var/lib/apt/lists/*
 
-# Add files.
+RUN \
+  /bin/busybox --install
 
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
+# Default Shell
+SHELL ["/bin/zsh","-c"]
 
 # Define default command.
-CMD ["bash"]
-
+CMD ["zsh"]
