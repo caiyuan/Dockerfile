@@ -9,10 +9,10 @@ FROM centos:8.2.2004
 ARG BUSYBOX_BIN="https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-x86_64"
 
 # Get BusyBox
-ADD $BUSYBOX_BIN ~
+ADD $BUSYBOX_BIN /tmp/
 
 RUN \
-  mv ~/busybox* /bin/busybox && \
+  mv /tmp/busybox* /bin/busybox && \
   chmod +x /bin/busybox && \
   /bin/busybox --install
 
