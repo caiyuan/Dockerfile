@@ -16,7 +16,7 @@ RUN \
   /bin/busybox --install
 
 # Default Shell
-SHELL ["zsh","-c"]
+SHELL ["/bin/zsh","-c"]
 
 # Define default command.
 CMD ["zsh"]
