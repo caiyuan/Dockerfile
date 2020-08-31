@@ -9,17 +9,14 @@ FROM alpine:20200626
 RUN \
   echo 'https://mirrors.aliyun.com/alpine/v3.12/main/' > '/etc/apk/repositories' && \
   apk update && \
-  apk add iproute2 vim bash && \
+  apk add busybox zsh && \
   rm -rf /var/cache/apk/*
 
-# Add files.
+RUN \
+  /bin/busybox --install
 
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
+# Default Shell
+SHELL ["zsh","-c"]
 
 # Define default command.
-CMD ["sh"]
-
+CMD ["zsh"]
