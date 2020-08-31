@@ -11,17 +11,14 @@ RUN \
   sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y busybox && \
+  apt-get install -y busybox zsh && \
   rm -rf /var/lib/apt/lists/*
 
 RUN \
-  busybox --install
+  /bin/busybox --install
 
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
+# Default Shell
+SHELL ["/bin/zsh","-c"]
 
 # Define default command.
-CMD ["bash"]
+CMD ["zsh"]
